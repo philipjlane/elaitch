@@ -59,14 +59,14 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <BlogCard
               v-for="post in filteredPosts"
-              :key="post._path"
+              :key="post.stem"
               :title="post.title"
               :description="post.description"
               :date="post.date"
               :author="post.author"
               :category="post.category"
               :tags="post.tags"
-              :slug="post._path.split('/').pop()"
+              :slug="post.stem.split('/').pop()"
             />
           </div>
 
@@ -137,17 +137,10 @@
 </template>
 
 <script setup lang="ts">
-// Fetch all blog posts from Nuxt Content API
-const { data: posts, pending, error } = await useAsyncData('blog-posts', async () => {
-  const content = await $fetch('/api/_content/query', {
-    method: 'GET',
-    query: {
-      _path: '/blog',
-      _sort: 'date:desc'
-    }
-  })
-  return content
-})
+// Fetch all blog posts using Nuxt Content v3 API
+const { data: posts, pending, error } = await useAsyncData('blog-posts', () =>
+  queryCollection('blog').order('date', 'DESC').all()
+)
 
 // Extract unique categories
 const categories = computed(() => {

@@ -115,14 +115,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <BlogCard
                 v-for="relatedPost in relatedPosts"
-                :key="relatedPost._path"
+                :key="relatedPost.stem"
                 :title="relatedPost.title"
                 :description="relatedPost.description"
                 :date="relatedPost.date"
                 :author="relatedPost.author"
                 :category="relatedPost.category"
                 :tags="relatedPost.tags"
-                :slug="relatedPost._path.split('/').pop()"
+                :slug="relatedPost.stem.split('/').pop()"
               />
             </div>
           </div>
@@ -164,30 +164,27 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch the blog post from Nuxt Content API
-const { data: post, pending, error } = await useAsyncData(`blog-${slug}`, async () => {
-  const content = await $fetch(`/api/_content/query`, {
-    method: 'GET',
-    query: {
-      _path: `/blog/${slug}`
-    }
-  })
-  return Array.isArray(content) ? content[0] : content
+// Fetch all blog posts and find the one matching this slug
+const { data: allPosts, pending, error} = await useAsyncData(`blog-${slug}`, () =>
+  queryCollection('blog').all()
+)
+
+const post = computed(() => {
+  if (!allPosts.value) return null
+  return allPosts.value.find(p => p.stem === `blog/${slug}` || p.stem.endsWith(`/${slug}`) || p.stem === slug)
 })
 
-// Fetch related posts (same category, excluding current post)
-const { data: relatedPosts } = await useAsyncData(`related-${slug}`, async () => {
-  if (!post.value) return []
-  const content = await $fetch('/api/_content/query', {
-    method: 'GET',
-    query: {
-      _path: '/blog',
-      category: post.value.category,
-      _where: `_path ne /blog/${slug}`,
-      _limit: 2
-    }
-  })
-  return content
+// Fetch all posts for related posts filtering
+const { data: allPostsForRelated } = await useAsyncData(`related-${slug}`, () =>
+  queryCollection('blog').all()
+)
+
+// Filter related posts (same category, excluding current post)
+const relatedPosts = computed(() => {
+  if (!post.value || !allPostsForRelated.value) return []
+  return allPostsForRelated.value
+    .filter(p => p.category === post.value.category && p.stem !== post.value.stem)
+    .slice(0, 2)
 })
 
 const formattedDate = computed(() => {
