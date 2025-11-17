@@ -137,12 +137,17 @@
 </template>
 
 <script setup lang="ts">
-// Fetch all blog posts
-const { data: posts, pending, error } = await useAsyncData('blog-posts', () =>
-  queryContent('/blog')
-    .sort({ date: -1 })
-    .find()
-)
+// Fetch all blog posts from Nuxt Content API
+const { data: posts, pending, error } = await useAsyncData('blog-posts', async () => {
+  const content = await $fetch('/api/_content/query', {
+    method: 'GET',
+    query: {
+      _path: '/blog',
+      _sort: 'date:desc'
+    }
+  })
+  return content
+})
 
 // Extract unique categories
 const categories = computed(() => {

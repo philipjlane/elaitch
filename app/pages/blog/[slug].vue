@@ -164,18 +164,30 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch the blog post
-const { data: post, pending, error } = await useAsyncData(`blog-${slug}`, () =>
-  queryContent(`/blog/${slug}`).findOne()
-)
+// Fetch the blog post from Nuxt Content API
+const { data: post, pending, error } = await useAsyncData(`blog-${slug}`, async () => {
+  const content = await $fetch(`/api/_content/query`, {
+    method: 'GET',
+    query: {
+      _path: `/blog/${slug}`
+    }
+  })
+  return Array.isArray(content) ? content[0] : content
+})
 
 // Fetch related posts (same category, excluding current post)
-const { data: relatedPosts } = await useAsyncData(`related-${slug}`, () => {
-  if (!post.value) return Promise.resolve([])
-  return queryContent('/blog')
-    .where({ category: post.value.category, _path: { $ne: `/blog/${slug}` } })
-    .limit(2)
-    .find()
+const { data: relatedPosts } = await useAsyncData(`related-${slug}`, async () => {
+  if (!post.value) return []
+  const content = await $fetch('/api/_content/query', {
+    method: 'GET',
+    query: {
+      _path: '/blog',
+      category: post.value.category,
+      _where: `_path ne /blog/${slug}`,
+      _limit: 2
+    }
+  })
+  return content
 })
 
 const formattedDate = computed(() => {
