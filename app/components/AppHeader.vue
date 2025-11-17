@@ -3,8 +3,13 @@
     <nav class="container-custom">
       <div class="flex items-center justify-between h-16 md:h-20">
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center space-x-2 group">
-          <span class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+        <NuxtLink to="/" class="flex items-center space-x-3 group">
+          <img
+            src="/logo.svg"
+            alt="Elaitch Logo"
+            class="h-8 w-8 md:h-10 md:w-10 transition-transform group-hover:scale-105"
+          />
+          <span class="text-xl md:text-2xl font-medium tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors">
             elaitch
           </span>
         </NuxtLink>
