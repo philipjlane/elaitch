@@ -8,13 +8,12 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand -->
         <div class="md:col-span-2">
-          <div class="flex items-center space-x-3 mb-4">
+          <div class="mb-4">
             <img
               src="/logo.svg"
               alt="Elaitch Logo"
               class="h-8 w-8 brightness-0 invert"
             />
-            <h3 class="text-2xl font-bold text-white tracking-tight">elaitch</h3>
           </div>
           <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
             Professional web development services with years of experience.
