@@ -9,7 +9,6 @@
         <div class="animate-slide-up">
           <h1 class="heading-xl text-gray-900 mb-6 leading-[1.1]">
             Build Your Vision with
-<<<<<<< HEAD
             <div class="mt-8 flex justify-center overflow-hidden w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,11 +30,6 @@
             </g>
           </svg>
             </div>
-=======
-            <span class="bg-gradient-to-r from-primary-500 via-accent-500 to-coral-500 bg-clip-text text-transparent block mt-2 animate-gradient bg-300%">
-              Elaitch
-            </span>
->>>>>>> c619ec1 (Update to British English and modern 2025/6 colour palette)
           </h1>
           <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto font-normal">
             Professional web development services by Phil Lane.
