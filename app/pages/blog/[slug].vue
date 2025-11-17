@@ -70,6 +70,15 @@
             <ContentRenderer :value="post" class="blog-content" />
           </div>
 
+          <!-- Social Share -->
+          <div class="mt-12 pt-8 border-t border-gray-200">
+            <SocialShare
+              :url="currentUrl"
+              :title="post.title"
+              :description="post.description"
+            />
+          </div>
+
           <!-- Tags -->
           <div class="mt-12 pt-8 border-t border-gray-200">
             <h3 class="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
@@ -187,6 +196,14 @@ const formattedDate = computed(() => {
     month: 'long',
     day: 'numeric'
   })
+})
+
+// Get current URL for social sharing
+const currentUrl = computed(() => {
+  if (import.meta.client) {
+    return window.location.href
+  }
+  return `https://elaitch.com/blog/${slug}`
 })
 
 // SEO Meta
