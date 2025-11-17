@@ -37,10 +37,10 @@
             with exceptional user experiences.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <NuxtLink to="#contact" class="btn-primary text-lg px-8 py-4">
+            <NuxtLink to="/#contact" class="btn-primary text-lg px-8 py-4">
               Start Your Project
             </NuxtLink>
-            <NuxtLink to="#work" class="btn-secondary text-lg px-8 py-4">
+            <NuxtLink to="/#work" class="btn-secondary text-lg px-8 py-4">
               View Capabilities
             </NuxtLink>
           </div>

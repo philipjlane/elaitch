@@ -37,7 +37,7 @@
           >
             {{ item.name }}
           </NuxtLink>
-          <NuxtLink to="#contact" class="btn-primary">
+          <NuxtLink to="/#contact" class="btn-primary">
             Get In Touch
           </NuxtLink>
         </div>
@@ -70,7 +70,7 @@
             >
               {{ item.name }}
             </NuxtLink>
-            <NuxtLink to="#contact" @click="mobileMenuOpen = false" class="btn-primary mt-2">
+            <NuxtLink to="/#contact" @click="mobileMenuOpen = false" class="btn-primary mt-2">
               Get In Touch
             </NuxtLink>
           </div>
@@ -84,10 +84,10 @@
 const mobileMenuOpen = ref(false)
 
 const navigation = [
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Capabilities', href: '#work' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '/#services' },
+  { name: 'About', href: '/#about' },
+  { name: 'Capabilities', href: '/#work' },
+  { name: 'Contact', href: '/#contact' },
   { name: 'Blog', href: '/blog' },
 ]
 

@@ -71,7 +71,7 @@
         <p class="text-gray-600 mb-6">
           Ready to bring your vision to life?
         </p>
-        <NuxtLink to="#contact" class="btn-primary text-lg">
+        <NuxtLink to="/#contact" class="btn-primary text-lg">
           Let's Discuss Your Project
         </NuxtLink>
       </div>
