@@ -59,14 +59,14 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <BlogCard
               v-for="post in filteredPosts"
-              :key="post.stem"
+              :key="post.path"
               :title="post.title"
               :description="post.description"
               :date="post.date"
               :author="post.author"
               :category="post.category"
               :tags="post.tags"
-              :slug="post.stem.split('/').pop()"
+              :slug="post.path.split('/').pop()"
             />
           </div>
 

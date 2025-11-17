@@ -115,14 +115,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <BlogCard
                 v-for="relatedPost in relatedPosts"
-                :key="relatedPost.stem"
+                :key="relatedPost.path"
                 :title="relatedPost.title"
                 :description="relatedPost.description"
                 :date="relatedPost.date"
                 :author="relatedPost.author"
                 :category="relatedPost.category"
                 :tags="relatedPost.tags"
-                :slug="relatedPost.stem.split('/').pop()"
+                :slug="relatedPost.path.split('/').pop()"
               />
             </div>
           </div>
@@ -164,27 +164,19 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch all blog posts and find the one matching this slug
-const { data: allPosts, pending, error} = await useAsyncData(`blog-${slug}`, () =>
-  queryCollection('blog').all()
+// Fetch the blog post using Nuxt Content v3 path() method
+const { data: post, pending, error } = await useAsyncData(`blog-${slug}`, () =>
+  queryCollection('blog').path(`/blog/${slug}`).first()
 )
 
-const post = computed(() => {
-  if (!allPosts.value) return null
-  return allPosts.value.find(p => p.stem === `blog/${slug}` || p.stem.endsWith(`/${slug}`) || p.stem === slug)
-})
-
-// Fetch all posts for related posts filtering
-const { data: allPostsForRelated } = await useAsyncData(`related-${slug}`, () =>
-  queryCollection('blog').all()
-)
-
-// Filter related posts (same category, excluding current post)
-const relatedPosts = computed(() => {
-  if (!post.value || !allPostsForRelated.value) return []
-  return allPostsForRelated.value
-    .filter(p => p.category === post.value.category && p.stem !== post.value.stem)
-    .slice(0, 2)
+// Fetch related posts (same category, excluding current post)
+const { data: relatedPosts } = await useAsyncData(`related-${slug}`, async () => {
+  if (!post.value) return []
+  return queryCollection('blog')
+    .where('category', '=', post.value.category)
+    .where('path', '<>', `/blog/${slug}`)
+    .limit(2)
+    .all()
 })
 
 const formattedDate = computed(() => {
