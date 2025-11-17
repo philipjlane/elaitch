@@ -87,6 +87,7 @@ const navigation = [
   { name: 'Services', href: '#services' },
   { name: 'About', href: '#about' },
   { name: 'Work', href: '#work' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '#contact' },
 ]
 
