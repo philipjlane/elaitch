@@ -41,7 +41,7 @@
               Start Your Project
             </NuxtLink>
             <NuxtLink to="#work" class="btn-secondary text-lg px-8 py-4">
-              View My Work
+              View Capabilities
             </NuxtLink>
           </div>
         </div>
@@ -65,8 +65,8 @@
 <script setup lang="ts">
 const stats = [
   { value: '10+', label: 'Years Experience' },
-  { value: '100+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Happy Clients' },
-  { value: '99%', label: 'Satisfaction Rate' },
+  { value: '15+', label: 'Technologies' },
+  { value: '4', label: 'Core Capabilities' },
+  { value: '100%', label: 'Commitment' },
 ]
 </script>
