@@ -42,7 +42,7 @@
           <ul class="space-y-2">
             <li><NuxtLink to="#services" class="hover:text-white transition-colors">Services</NuxtLink></li>
             <li><NuxtLink to="#about" class="hover:text-white transition-colors">About</NuxtLink></li>
-            <li><NuxtLink to="#work" class="hover:text-white transition-colors">Work</NuxtLink></li>
+            <li><NuxtLink to="#work" class="hover:text-white transition-colors">Capabilities</NuxtLink></li>
             <li><NuxtLink to="#contact" class="hover:text-white transition-colors">Contact</NuxtLink></li>
           </ul>
         </div>
