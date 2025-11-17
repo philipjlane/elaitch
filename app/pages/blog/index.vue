@@ -66,7 +66,7 @@
               :author="post.author"
               :category="post.category"
               :tags="post.tags"
-              :slug="post.path.split('/').pop()"
+              :slug="post.path.split('/').pop()||''"
             />
           </div>
 
