@@ -1,10 +1,15 @@
 <template>
-  <section class="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50">
-    <div class="container-custom">
+  <section class="section-padding relative overflow-hidden">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-100 via-accent-50/50 to-coral-50/30 animate-gradient bg-300%"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.15),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(217,70,239,0.15),transparent_50%)]"></div>
+
+    <div class="container-custom relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <div class="animate-slide-up">
           <h1 class="heading-xl text-gray-900 mb-6 leading-[1.1]">
             Build Your Vision with
+<<<<<<< HEAD
             <div class="mt-8 flex justify-center overflow-hidden w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,10 +31,15 @@
             </g>
           </svg>
             </div>
+=======
+            <span class="bg-gradient-to-r from-primary-500 via-accent-500 to-coral-500 bg-clip-text text-transparent block mt-2 animate-gradient bg-300%">
+              Elaitch
+            </span>
+>>>>>>> c619ec1 (Update to British English and modern 2025/6 colour palette)
           </h1>
-          <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto font-normal">
             Professional web development services by Phil Lane.
-            Specializing in modern, high-performance web applications
+            Specialising in modern, high-performance web applications
             with exceptional user experiences.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -44,11 +54,11 @@
 
         <!-- Stats -->
         <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div v-for="stat in stats" :key="stat.label" class="animate-fade-in">
-            <div class="text-4xl md:text-5xl font-bold text-blue-600 mb-2 tracking-tight">
+          <div v-for="stat in stats" :key="stat.label" class="animate-fade-in group">
+            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary-600 to-accent-600 bg-clip-text text-transparent mb-2 tracking-tight group-hover:scale-110 transition-transform duration-300">
               {{ stat.value }}
             </div>
-            <div class="text-sm md:text-base text-gray-600 font-medium">
+            <div class="text-sm md:text-base text-gray-700 font-medium">
               {{ stat.label }}
             </div>
           </div>

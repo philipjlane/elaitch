@@ -1,6 +1,10 @@
 <template>
-  <footer class="bg-gray-900 text-gray-300">
-    <div class="container-custom py-12 md:py-16">
+  <footer class="relative bg-gray-900 text-gray-300 overflow-hidden">
+    <!-- Gradient accents -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-accent-500/10 to-transparent rounded-full blur-3xl"></div>
+
+    <div class="container-custom py-12 md:py-16 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Brand -->
         <div class="md:col-span-2">
@@ -14,7 +18,7 @@
           </div>
           <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
             Professional web development services with years of experience.
-            Building modern, performant, and SEO-optimized web applications.
+            Building modern, performant, and SEO-optimised web applications.
           </p>
           <div class="flex space-x-4">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer"

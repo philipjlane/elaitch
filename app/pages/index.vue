@@ -12,14 +12,14 @@
 // SEO Meta tags
 useSeoMeta({
   title: 'Elaitch - Professional Web Development by Phil Lane',
-  description: 'Expert web development services specializing in Vue.js, Nuxt, and modern web applications. Years of experience delivering high-performance, SEO-optimized solutions.',
+  description: 'Expert web development services specialising in Vue.js, Nuxt, and modern web applications. Years of experience delivering high-performance, SEO-optimised solutions.',
   ogTitle: 'Elaitch - Professional Web Development by Phil Lane',
-  ogDescription: 'Expert web development services specializing in Vue.js, Nuxt, and modern web applications. Years of experience delivering high-performance, SEO-optimized solutions.',
+  ogDescription: 'Expert web development services specialising in Vue.js, Nuxt, and modern web applications. Years of experience delivering high-performance, SEO-optimised solutions.',
   ogImage: '/og-image.jpg',
   ogUrl: 'https://elaitch.dev',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Elaitch - Professional Web Development by Phil Lane',
-  twitterDescription: 'Expert web development services specializing in Vue.js, Nuxt, and modern web applications.',
+  twitterDescription: 'Expert web development services specialising in Vue.js, Nuxt, and modern web applications.',
 })
 
 // Structured Data for SEO using native useHead
@@ -50,7 +50,7 @@ useHead({
             '@id': 'https://elaitch.dev/#person',
             'name': 'Phil Lane',
             'jobTitle': 'Web Developer',
-            'description': 'Experienced web developer specializing in modern web applications',
+            'description': 'Experienced web developer specialising in modern web applications',
             'url': 'https://elaitch.dev',
             'sameAs': [
               'https://github.com/philipjlane',
@@ -64,7 +64,7 @@ useHead({
               'Node.js',
               'Full-Stack Development',
               'SEO',
-              'Performance Optimization',
+              'Performance Optimisation',
             ],
           },
           {
@@ -81,7 +81,7 @@ useHead({
             '@type': 'ProfessionalService',
             'name': 'Elaitch Web Development',
             'url': 'https://elaitch.dev',
-            'description': 'Professional web development services specializing in modern web applications, Vue.js, Nuxt, and full-stack solutions',
+            'description': 'Professional web development services specialising in modern web applications, Vue.js, Nuxt, and full-stack solutions',
             'areaServed': 'Worldwide',
             'serviceType': 'Web Development',
             'provider': {
