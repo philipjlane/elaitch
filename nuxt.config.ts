@@ -6,7 +6,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/seo',
     '@nuxt/image'
   ],
 
@@ -18,25 +17,6 @@ export default defineNuxtConfig({
         lang: 'en'
       }
     }
-  },
-
-  site: {
-    url: 'https://elaitch.dev',
-    name: 'Elaitch - Professional Web Development by Phil Lane',
-    description: 'Elaitch delivers expert web development services with years of experience. Specializing in modern web applications, Vue.js, Nuxt, and full-stack solutions.',
-    defaultLocale: 'en'
-  },
-
-  ogImage: {
-    enabled: false
-  },
-
-  sitemap: {
-    enabled: true
-  },
-
-  robots: {
-    enabled: true
   },
 
   css: ['~/assets/css/main.css'],
