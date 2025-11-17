@@ -88,6 +88,7 @@ const navigation = [
   { name: 'About', href: '#about' },
   { name: 'Capabilities', href: '#work' },
   { name: 'Contact', href: '#contact' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 // Close mobile menu on route change
