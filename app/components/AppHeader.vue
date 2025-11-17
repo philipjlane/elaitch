@@ -86,9 +86,9 @@ const mobileMenuOpen = ref(false)
 const navigation = [
   { name: 'Services', href: '#services' },
   { name: 'About', href: '#about' },
-  { name: 'Work', href: '#work' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Capabilities', href: '#work' },
   { name: 'Contact', href: '#contact' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 // Close mobile menu on route change
