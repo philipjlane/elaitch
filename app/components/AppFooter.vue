@@ -10,9 +10,9 @@
         <div class="md:col-span-2">
           <div class="mb-4">
             <img
-              src="/logo.svg"
+              src="/logo-landscape.svg"
               alt="Elaitch Logo"
-              class="h-8 w-8 brightness-0 invert"
+              class="w-[150px] brightness-0 invert"
             />
           </div>
           <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
