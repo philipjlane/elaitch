@@ -1,0 +1,27 @@
+# Firebase App Hosting configuration
+# https://firebase.google.com/docs/app-hosting
+
+runConfig:
+  # Specify the runtime environment
+  runtime: nodejs22
+
+env:
+  # Environment variables for the application
+  # These can be set in the Firebase Console or via the Firebase CLI
+  # For production, configure these in Firebase Console -> App Hosting -> Environment Variables
+  - variable: NUXT_PUBLIC_GTAG_ID
+    value: "" # Set your Google Analytics 4 Measurement ID (e.g., G-XXXXXXXXXX)
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NUXT_PUBLIC_GTM_ID
+    value: "" # Set your Google Tag Manager ID (e.g., GTM-XXXXXXX)
+    availability:
+      - BUILD
+      - RUNTIME
+
+# Build configuration
+buildConfig:
+  installCommand: npm install
+  buildCommand: npm run build

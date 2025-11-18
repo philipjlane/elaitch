@@ -7,8 +7,22 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-gtag'
   ],
+
+  // Google Analytics configuration
+  gtag: {
+    id: process.env.NUXT_PUBLIC_GTAG_ID || ''
+  },
+
+  // Runtime config for environment variables
+  runtimeConfig: {
+    public: {
+      gtagId: process.env.NUXT_PUBLIC_GTAG_ID || '',
+      gtmId: process.env.NUXT_PUBLIC_GTM_ID || ''
+    }
+  },
 
   app: {
     head: {
