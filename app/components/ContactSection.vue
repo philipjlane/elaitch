@@ -179,28 +179,38 @@ const handleSubmit = async () => {
   isSubmitting.value = true
   submitMessage.value = ''
 
-  // Simulate form submission (replace with actual API call)
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  try {
+    const response = await $fetch('/api/contact', {
+      method: 'POST',
+      body: form.value,
+    })
 
-  // In a real application, you would send this to an API endpoint
-  console.log('Form submitted:', form.value)
+    if (response.statusCode === 200) {
+      submitSuccess.value = true
+      submitMessage.value = 'Thank you! Your message has been sent. I\'ll get back to you soon.'
 
-  submitSuccess.value = true
-  submitMessage.value = 'Thank you! Your message has been sent. I\'ll get back to you soon.'
+      // Reset form
+      form.value = {
+        name: '',
+        email: '',
+        projectType: '',
+        message: '',
+      }
 
-  // Reset form
-  form.value = {
-    name: '',
-    email: '',
-    projectType: '',
-    message: '',
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        submitMessage.value = ''
+      }, 5000)
+    } else {
+      submitSuccess.value = false
+      submitMessage.value = 'There was an error sending your message. Please try again or email me directly.'
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error)
+    submitSuccess.value = false
+    submitMessage.value = 'There was an error sending your message. Please try again or email me directly at hello@elaitch.dev.'
+  } finally {
+    isSubmitting.value = false
   }
-
-  isSubmitting.value = false
-
-  // Clear success message after 5 seconds
-  setTimeout(() => {
-    submitMessage.value = ''
-  }, 5000)
 }
 </script>

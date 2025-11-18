@@ -25,5 +25,10 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: false
+  },
+
+  runtimeConfig: {
+    // Private keys - only available on server side
+    resendApiKey: process.env.RESEND_API_KEY || '',
   }
 })
